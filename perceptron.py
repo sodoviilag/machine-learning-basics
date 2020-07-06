@@ -45,13 +45,13 @@ class Perceptron (object):
         randomgen = np.random.RandomState(self.random.state)
         #normal distribution with standard deviation 0.01
         self.w_ = randomgen.normal(loc=0.0, scale=0.01, size=1 + X.shape[1])
-        self.errors_ []
+        self.errors_ = []
         
         for _ in range (self.n_itr):
             errors = 0
             for xi, target in zip(X,y): #aggregate input and output into a tupple
                 update = self.learn_rate * (target - self.predict(xi))
-                self.w_[1:] = += update * xi
+                self.w_[1:] += update * xi
                 self.w_[0] += update
                 errors += int(update != 0)
             self.errors_.append(errors)
